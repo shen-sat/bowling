@@ -20,7 +20,11 @@ class Game
 	def sum
 		@frames.each_with_index do |frame, ind|
 			frame_total = frame.reduce(:+)
-			if frame_total == 10
+			if frame[0] == 10
+				@total += frame_total
+				@total += frames[ind + 1][0]
+				@total += frames[ind + 1][1]				
+			elsif frame_total == 10
 				@total += frame_total
 				@total += frames[ind + 1][0]
 			else

@@ -33,5 +33,15 @@ describe 'Game' do
 		game.make_frames
 		expect(game.frames).to eq([[10,0]])
 	end
-	
+
+	it 'should calculate a total score of 13 for a first-frame strike' do
+		game = Game.new
+		game.roll(10)
+		game.roll(1)
+		game.roll(1)
+		16.times {game.roll(0)}
+		game.make_frames
+		game.sum
+		expect(game.total).to eq(14)
+	end	
 end
