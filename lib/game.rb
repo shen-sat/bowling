@@ -9,7 +9,8 @@ class Game
 
 
 	def roll(pins)
-		@rolls.push(pins) 
+		@rolls.push(pins)
+		@rolls.push(0) if pins == 10 
 	end
 
 	def make_frames
