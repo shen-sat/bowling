@@ -17,9 +17,14 @@ class Game
 	end
 
 	def sum
-		@frames.each do |frame|
-			@total += frame.reduce(:+)
+		@frames.each_with_index do |frame, ind|
+			frame_total = frame.reduce(:+)
+			if frame_total == 10
+				@total += frame_total
+				@total += frames[ind + 1][0]
+			else
+				@total += frame_total
+			end
 		end
-		#@rolls.reduce(:+)
 	end
 end
