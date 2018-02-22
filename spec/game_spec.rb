@@ -26,5 +26,12 @@ describe 'Game' do
 		game.sum
 		expect(game.total).to eq(12)
 	end
+
+	it 'should automatically give a second roll of 0 for first roll 10' do 
+		game = Game.new
+		game.roll(10)
+		game.make_frames
+		expect(game.frames).to eq([[10,0]])
+	end
 	
 end
